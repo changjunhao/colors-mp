@@ -1,3 +1,13 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="background-color: {{currentColor.hex || '#fff'}}; padding-top: {{topHeight}}px">
+    <view class="color-view" style="color: rgb(80, 97, 109);" wx:if="{{currentColor.hex}}">
+        <text class="color-name">{{currentColor.name}}</text>
+        <text class="color-pinyin">{{currentColor.pinyin}}</text>
+        <view class="sc-fzoXzr jYxGEJ" style="background: rgba({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}}, 0.5); color: rgb(80, 97, 109);">
+            <view class="line">{{poetry.content[0]}}</view>
+            <view class="line">{{poetry.content[1]}}</view>
+            <text>{{poetry.author}} · {{poetry.title}}</text>
+        </view>
+        <image class="figure" src="https://colors.ichuantong.cn/figure/{{currentColor.figure}}" alt="figure"></image>
+    </view>
 </view>
