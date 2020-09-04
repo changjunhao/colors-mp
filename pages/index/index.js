@@ -31,6 +31,17 @@ Page({
       backgroundColor: currentColor.hex,
     })
   },
+  handleColorChange (event) {
+    const { id } = event.currentTarget.dataset
+    const currentColor = this.data.currentColorSet.colors.find(item => item.id === id)
+    this.setData({
+      currentColor,
+      oppositeColor: getCorrectTextColor(currentColor.RGB)
+    })
+    wx.setBackgroundColor({
+      backgroundColor: currentColor.hex,
+    })
+  },
   handleFigureLoad: function (event) {
     const { height, width } = event.detail
     this.setData({

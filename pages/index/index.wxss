@@ -7,6 +7,9 @@
     overflow: hidden;
     margin: 0 auto;
     align-items: flex-start;
+    padding-bottom: 56rpx;
+    padding-left: 14rpx;
+    padding-right: 14rpx;
 }
 .color-nav {
     display: flex;
@@ -16,6 +19,77 @@
     width: 320rpx;
     margin-right: 42rpx;
 }
+.color-nav-item {
+    border-top: 11.2rpx solid;
+    display: flex;
+    flex-direction: row;
+    writing-mode: vertical-lr;
+    padding: 14rpx 5.6rpx 11.2rpx;
+    margin: 11.2rpx;
+    border-bottom-right-radius: 12rpx;
+    border-bottom-left-radius: 12rpx;
+    transition: all 0.5s ease 0s;
+    align-self: flex-start;
+}
+
+.color-nav-item .line1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 16.8rpx;
+    min-height: 179.2rpx;
+}
+
+.color-nav-item .line1 .cmyk {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color-nav-item .line1 .name {
+    writing-mode: vertical-lr;
+    align-self: flex-end;
+    font-size: 22.4rpx;
+    margin-left: 5.6rpx;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.color-nav-item .line1 .name .seq {
+    opacity: 0.5;
+}
+
+.color-nav-item .line2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 16.8rpx;
+    font-weight: bold;
+}
+
+.color-nav-item .line2 .rgb {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-nav-item .line2 .rgb .line {
+    width: 4rpx;
+    height: 168rpx;
+    margin: 0 2rpx;
+}
+
+.color-nav-item .line2 .hex {
+    font-size: 16.8rpx;
+    color: inherit;
+}
+
+.color-nav-item .line2 .pinyin {
+    text-transform: capitalize;
+    color: inherit;
+}
+
 .color-view {
     box-sizing: border-box;
     display: flex;
@@ -54,6 +128,7 @@
     line-height: 1.2;
     padding: 16.8rpx 11.2rpx;
     margin: 28rpx 0 56rpx;
+    z-index: 1;
 }
 .poetry .line {
     color: inherit;

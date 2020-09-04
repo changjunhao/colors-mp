@@ -1,7 +1,24 @@
 <!--index.wxml-->
 <view class="container" style="background-color: {{currentColor.hex || '#fff'}}; padding-top: {{topHeight}}px">
     <scroll-view class="color-nav" scroll-y enable-back-to-top enable-flex scroll-anchoring enhanced show-scrollbar="{{false}}">
-
+        <view wx:for="{{currentColorSet.colors || []}}" wx:key="id" class="color-nav-item" style="color: {{oppositeColor}};background-color: rgba({{item.RGB[0]}},{{item.RGB[1]}},{{item.RGB[2]}}, 0.3);border-top-color: {{item.hex}};opacity:{{item.id === currentColor.id ? 1 : 0.8}};box-shadow: {{item.id === currentColor.id ? 'rgba(0, 0, 0, 0.6) 0 0 4rpx' : 'none'}};" data-id="{{item.id}}" bind:tap="handleColorChange">
+            <view class="line1">
+                <view class="cmyk"></view>
+                <view class="name">
+                    <text class="seq">{{index}}</text>
+                    <text class="txt">{{item.name}}</text>
+                </view>
+            </view>
+            <view class="line2">
+                <text class="hex">{{item.hex}}</text>
+                <view class="rgb">
+                    <view class="line r" style="background-image: linear-gradient({{oppositeColor}} 0%, {{oppositeColor}} {{item.RGB[0]/255*100}}%, rgba(255, 255, 255, 0.3) {{item.RGB[0]/255*100}}%, rgba(255, 255, 255, 0.3) 100%);"></view>
+                    <view class="line g" style="background-image: linear-gradient({{oppositeColor}} 0%, {{oppositeColor}} {{item.RGB[1]/255*100}}%, rgba(255, 255, 255, 0.3) {{item.RGB[1]/255*100}}%, rgba(255, 255, 255, 0.3) 100%);"></view>
+                    <view class="line b" style="background-image: linear-gradient({{oppositeColor}} 0%, {{oppositeColor}} {{item.RGB[2]/255*100}}%, rgba(255, 255, 255, 0.3) {{item.RGB[2]/255*100}}%, rgba(255, 255, 255, 0.3) 100%);"></view>
+                </view>
+                <text class="pinyin">{{item.pinyin}}</text>
+            </view>
+        </view>
     </scroll-view>
     <view class="color-view" style="color: {{oppositeColor}};" wx:if="{{currentColor.hex}}">
         <text class="color-name">{{currentColor.name}}</text>
