@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 // const app = getApp()
-const colors = require('../../data/colors')
+const COLORS = require('../../data/colors')
 const jinrishici = require('../../utils/jinrishici.js')
 
 Page({
@@ -15,8 +15,12 @@ Page({
     const { bottom } = wx.getMenuButtonBoundingClientRect()
     this.setData({
       topHeight: bottom,
-      currentColorSet: colors[2],
-      currentColor: colors[2].colors[0]
+      currentColorSet: COLORS[2],
+      currentColor: COLORS[2].colors[1]
+    }, () => {
+      wx.setBackgroundColor({
+        backgroundColor: this.data.currentColor.hex,
+      })
     })
     this._fetchPoetry()
   },
@@ -31,7 +35,7 @@ Page({
         .replace(/[，|。|！|？|、]/g, ' ')
         .trim()
         .split(' ');
-      this.setData({poetry: obj})
+      this.setData({ poetry: obj })
     })
   }
 })
