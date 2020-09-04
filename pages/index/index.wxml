@@ -3,7 +3,7 @@
     <scroll-view class="color-nav" scroll-y enable-back-to-top enable-flex scroll-anchoring enhanced show-scrollbar="{{false}}">
         <view wx:for="{{currentColorSet.colors || []}}" wx:key="id" class="color-nav-item" style="color: {{oppositeColor}};background-color: rgba({{item.RGB[0]}},{{item.RGB[1]}},{{item.RGB[2]}}, 0.3);border-top-color: {{item.hex}};opacity:{{item.id === currentColor.id ? 1 : 0.8}};box-shadow: {{item.id === currentColor.id ? 'rgba(0, 0, 0, 0.6) 0 0 4rpx' : 'none'}};" data-id="{{item.id}}" bind:tap="handleColorChange">
             <view class="line1">
-                <view class="cmyk"></view>
+<!--                <view class="cmyk"></view>-->
                 <view class="name">
                     <text class="seq">{{index}}</text>
                     <text class="txt">{{item.name}}</text>
@@ -20,6 +20,18 @@
             </view>
         </view>
     </scroll-view>
+    <view class="color-params">
+        <view class="item cmyk c" data-id="c">{{currentColor.CMYK[0]}}</view>
+        <view class="item cmyk m" data-id="m">{{currentColor.CMYK[1]}}</view>
+        <view class="item cmyk y" data-id="y">{{currentColor.CMYK[2]}}</view>
+        <view class="item cmyk k" data-id="k">{{currentColor.CMYK[3]}}</view>
+        <view class="item rgb r" data-id="r">{{currentColor.RGB[0]}}</view>
+        <view class="item rgb g" data-id="g">{{currentColor.RGB[1]}}</view>
+        <view class="item rgb b" data-id="b">{{currentColor.RGB[2]}}</view>
+        <view class="item" data-id="hex" bind:tap="handleCopyHex">
+            <text class="hex">{{currentColor.hex}}</text>
+        </view>
+    </view>
     <view class="color-view" style="color: {{oppositeColor}};" wx:if="{{currentColor.hex}}">
         <text class="color-name">{{currentColor.name}}</text>
         <text class="color-pinyin">{{currentColor.pinyin}}</text>

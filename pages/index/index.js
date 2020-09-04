@@ -48,6 +48,9 @@ Page({
       figureHeight: `${162 * height / width}rpx`
     })
   },
+  handleCopyHex: function () {
+    wx.setClipboardData({ data: this.data.currentColor.hex })
+  },
   _fetchPoetry: function () {
     jinrishici.load(result => {
       let obj = {

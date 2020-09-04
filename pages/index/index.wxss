@@ -40,10 +40,10 @@
     min-height: 179.2rpx;
 }
 
-.color-nav-item .line1 .cmyk {
-    display: flex;
-    justify-content: space-between;
-}
+/*.color-nav-item .line1 .cmyk {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
 
 .color-nav-item .line1 .name {
     writing-mode: vertical-lr;
@@ -53,11 +53,19 @@
     font-weight: 800;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .color-nav-item .line1 .name .seq {
     opacity: 0.5;
+}
+
+.color-nav-item .line1 .name .txt {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
 }
 
 .color-nav-item .line2 {
@@ -90,6 +98,70 @@
     color: inherit;
 }
 
+.color-params {
+    display: flex;
+    flex-direction: column;
+    width: 180rpx;
+    margin-right: 14rpx;
+    margin-top: 16.8rpx;
+}
+
+.color-params .item {
+    border-top: 2rpx solid rgba(255, 255, 255, 0.6);
+    padding: 22.4rpx 0 11.2rpx 5.6rpx;
+    position: relative;
+}
+
+.color-params .item::before {
+    content: attr(data-id);
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 20rpx;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+    top: 11.2rpx;
+    left: 0;
+    text-shadow: black 0 0 10rpx;
+}
+
+.color-params .item.cmyk, .color-params .item.rgb {
+    text-align: right;
+    font-size: 28rpx;
+}
+.color-params .item.cmyk.c {
+    color: rgba(0, 147, 211, 0.8);
+}
+.color-params .item.cmyk.m {
+    color: rgba(204, 0, 107, 0.8);
+}
+.color-params .item.cmyk.y {
+    color: rgba(255, 241, 12, 0.8);
+}
+.color-params .item.cmyk.k {
+    color: rgba(51, 51, 51, 0.8);
+}
+.color-params .item.rgb.r {
+    color: rgba(255, 0, 0, 0.8);
+}
+.color-params .item.rgb.g {
+    color: rgba(0, 255, 0, 0.8);
+}
+.color-params .item.rgb.b {
+    color: rgba(0, 0, 255, 0.8);
+}
+
+.color-params .item .hex {
+    display: block;
+    margin-top: 16.8rpx;
+    padding: 8.4rpx;
+    font-size: 28rpx;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    background: rgba(51, 51, 51, 0.5);
+    border-radius: 5.6rpx;
+}
+
 .color-view {
     box-sizing: border-box;
     display: flex;
@@ -102,7 +174,7 @@
     min-height: 504rpx;
     border-radius: 12rpx;
     padding: 28rpx 22.4rpx;
-    margin-right: 14px;
+    margin: 16rpx 14rpx 16rpx 16rpx;
 }
 .color-name {
     font-size: 100rpx;
@@ -112,16 +184,16 @@
 }
 .color-pinyin {
     text-transform: capitalize;
-    font-size: 16.8rpx;
+    font-size: 22.4rpx;
     writing-mode: vertical-lr;
     position: absolute;
-    right: 5.6rpx;
-    top: 11.2rpx;
+    right: 11.2rpx;
+    top: 22.4rpx;
     color: inherit;
 }
 .poetry {
     box-sizing: border-box;
-    font-size: 24rpx;
+    font-size: 28rpx;
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
@@ -133,16 +205,16 @@
 .poetry .line {
     color: inherit;
     text-align: right;
-    width: 28rpx;
+    width: 33.6rpx;
     letter-spacing: 4rpx;
     font-weight: bold;
 }
 .poetry-title {
     color: inherit;
-    font-size: 12rpx;
-    width: 14rpx;
+    font-size: 16.8rpx;
+    width: 19.6rpx;
     align-self: flex-end;
-    margin-right: 10rpx;
+    margin-right: 14rpx;
 }
 .color-view image {
     width: 100%;
