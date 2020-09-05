@@ -7,20 +7,25 @@ const { getCorrectTextColor } = require('../../utils/util')
 
 Page({
   data: {
+    colorsList: COLORS.map(item => {
+      const { colors, ...info } = item
+      return info
+    }),
     currentColorSet: {},
     currentColor:{},
     poetry: {},
     topHeight: 0,
-    figureHeight: 'auto'
+    figureHeight: 'auto',
+    expand: false,
   },
   onLoad: function () {
-    this._fetchPoetry()
+    this.fetchPoetry()
     this.initState()
   },
   initState () {
     const { bottom } = wx.getMenuButtonBoundingClientRect()
     const currentColorSet = COLORS[2]
-    const currentColor = currentColorSet.colors[0]
+    const currentColor = currentColorSet.colors[16]
     this.setData({
       topHeight: bottom,
       currentColorSet,
@@ -32,6 +37,7 @@ Page({
     })
   },
   handleColorChange (event) {
+    this.fetchPoetry()
     const { id } = event.currentTarget.dataset
     const currentColor = this.data.currentColorSet.colors.find(item => item.id === id)
     this.setData({
@@ -40,6 +46,25 @@ Page({
     })
     wx.setBackgroundColor({
       backgroundColor: currentColor.hex,
+    })
+  },
+  handleChangeColorSet (event) {
+    this.fetchPoetry()
+    const { id } = event.currentTarget.dataset
+    const currentColorSet = COLORS[id]
+    const currentColor = currentColorSet.colors[0]
+    this.setData({
+      currentColorSet,
+      currentColor,
+      oppositeColor: getCorrectTextColor(currentColor.RGB)
+    })
+    wx.setBackgroundColor({
+      backgroundColor: currentColor.hex,
+    })
+  },
+  handleExpand () {
+    this.setData({
+      expand: !this.data.expand,
     })
   },
   handleFigureLoad: function (event) {
@@ -51,7 +76,7 @@ Page({
   handleCopyHex: function () {
     wx.setClipboardData({ data: this.data.currentColor.hex })
   },
-  _fetchPoetry: function () {
+  fetchPoetry: function () {
     jinrishici.load(result => {
       let obj = {
         content: result.data.content,

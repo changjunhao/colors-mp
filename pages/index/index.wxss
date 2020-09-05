@@ -12,12 +12,15 @@
     padding-right: 14rpx;
 }
 .color-nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
+    box-sizing: border-box;
     height: 100%;
     width: 320rpx;
     margin-right: 42rpx;
+}
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 .color-nav-item {
     border-top: 11.2rpx solid;
@@ -184,11 +187,11 @@
 }
 .color-pinyin {
     text-transform: capitalize;
-    font-size: 22.4rpx;
+    font-size: 19.6rpx;
     writing-mode: vertical-lr;
     position: absolute;
-    right: 11.2rpx;
-    top: 22.4rpx;
+    right: 9.8rpx;
+    top: 19.6rpx;
     color: inherit;
 }
 .poetry {
@@ -221,4 +224,56 @@
     height: auto;
     position: absolute;
     bottom: 0;
+}
+
+.color-set {
+  position: fixed;
+  bottom: 56rpx;
+  right: 84rpx;
+  display: flex;
+  padding: 0 28rpx;
+  z-index: 999;
+}
+
+.color-set.expand .color-set-item {
+  margin-right: -9.52rpx;
+}
+
+.color-set-item {
+  transition: all 0.6s ease 0s;
+  box-shadow: black 0 0 22.4rpx;
+  width: 72.8rpx;
+  height: 72.8rpx;
+  margin-right: -50.4rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22.4rpx;
+  font-weight: 800;
+  color: #FFFFEB;
+}
+
+.color-set-item.selected {
+  transform: translateY(-44.8rpx);
+}
+
+.btn {
+  cursor: pointer;
+  position: absolute;
+  right: -44.8rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('https://colors.ichuantong.cn/static/assets/yinyang.b2e8af02.svg');
+  background-size: cover;
+  width: 84rpx;
+  height: 84rpx;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  transition: all 0.6s ease 0s;
+  box-shadow: black 1px -1px 6px;
+}
+
+.color-set.expand .btn {
+  transform: translateY(-50%) rotateZ(180deg);
 }
