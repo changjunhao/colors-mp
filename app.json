@@ -1,6 +1,8 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/index/index",
+    "pages/share/index",
+    "pages/download/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
