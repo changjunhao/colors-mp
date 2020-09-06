@@ -63,6 +63,7 @@
 .default-figure {
   width: 224rpx;
   height: 283.12rpx;
+  bottom: 0;
 }
 
 .generate-image-button {
@@ -77,4 +78,11 @@
   color: rgb(238, 238, 238);
   background: rgb(31, 47, 45);
   box-shadow: rgba(0, 0, 0, 0.5) 0 10rpx 18rpx;
+}
+
+.preview-canvas {
+  position: absolute;
+  left: -100vw;
+  height: 100vh;
+  width: 100vw;
 }

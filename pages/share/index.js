@@ -160,7 +160,6 @@ Page({
     }
   },
   extraImage() {
-
     wx.saveImageToPhotosAlbum({
       filePath: this.data.canvasImage,
       success(res) {

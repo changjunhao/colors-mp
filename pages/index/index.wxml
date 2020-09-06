@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="background-color: {{currentColor.hex || '#fff'}}; padding-top: {{topHeight}}rpx">
+<view class="container" style="background-color: {{currentColor.hex || '#fff'}}; padding-top: {{topHeight}}px">
     <scroll-view class="color-nav" scroll-y enable-back-to-top enable-flex scroll-anchoring enhanced show-scrollbar="{{false}}">
         <view class="colors">
             <view wx:for="{{currentColorSet.colors || []}}" wx:key="id" class="color-nav-item" style="color: {{oppositeColor}};background-color: rgba({{item.RGB[0]}},{{item.RGB[1]}},{{item.RGB[2]}}, 0.3);border-top-color: {{item.hex}};opacity:{{item.id === currentColor.id ? 1 : 0.8}};box-shadow: {{item.id === currentColor.id ? 'rgba(0, 0, 0, 0.6) 0 0 4rpx' : 'none'}};" data-id="{{item.id}}" bind:tap="handleColorChange">
@@ -48,7 +48,7 @@
         <view wx:for="{{colorsList}}" wx:key="id" class="{{currentColor.id[0] === item.id + '' ? 'color-set-item selected' : 'color-set-item'}}" style="background-color: {{item.hex}}" data-id="{{item.id}}" bind:tap="handleChangeColorSet">{{item.name}}</view>
         <view class="btn" bind:tap="handleExpand"></view>
     </view>
-    <view class="btns" style="top: {{topHeight + 14}}rpx">
+    <view class="btns" style="top: {{topHeight * 2 + 14}}rpx">
         <navigator url="/pages/share/index?id={{currentColor.id}}">
             <view class="icon share-icon"></view>
         </navigator>

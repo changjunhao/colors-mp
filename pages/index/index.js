@@ -28,7 +28,7 @@ Page({
     const currentColorSet = COLORS[2]
     const currentColor = currentColorSet.colors[16]
     this.setData({
-      topHeight: bottom * 2,
+      topHeight: bottom,
       currentColorSet,
       currentColor,
       oppositeColor: getCorrectTextColor(currentColor.RGB)
