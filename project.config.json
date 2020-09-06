@@ -53,13 +53,29 @@
       "current": -1,
       "list": []
     },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
     "game": {
       "currentL": -1,
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "current": -1,
       "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/share/index",
+          "pathName": "pages/share/index",
+          "query": "id=6-1",
+          "scene": null
+        }
+      ]
     }
   }
 }

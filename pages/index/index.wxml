@@ -49,11 +49,11 @@
         <view class="btn" bind:tap="handleExpand"></view>
     </view>
     <view class="btns" style="top: {{topHeight + 14}}rpx">
-        <navigator url="/pages/share/index">
+        <navigator url="/pages/share/index?id={{currentColor.id}}">
             <view class="icon share-icon"></view>
         </navigator>
         <navigator url="/pages/download/index">
-            <view class="icon download-icon"></view>
+            <view class="icon download-icon?id={{currentColor.id}}"></view>
         </navigator>
     </view>
 </view>

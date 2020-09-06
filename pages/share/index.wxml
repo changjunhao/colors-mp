@@ -1,0 +1,16 @@
+<view class="container" style="background-color: rgba({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}}, 0.4)">
+    <view class="share-view">
+        <view id="SHARE_CARD" class="share-card" style="background: {{oppositeColor}};">
+            <view class="title" style="color: rgba({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}}, 0.8)">
+                <text class="set">{{colorSetName}}</text>
+                <text class="dot">·</text>
+                <text class="color">{{currentColor.name}}</text>
+            </view>
+            <view class="circle" style="background: linear-gradient(180deg, rgb({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}}), rgba({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}},.6))">
+                <image class="img" src="https://colors.ichuantong.cn/figure/{{currentColor.figure || 'default.png'}}"></image>
+            </view>
+            <view class="generate-image-button" bind:tap="handleGenerateImage">生成图片</view>
+        </view>
+    </view>
+    <canvas type="2d" id="SHARE_CARD_CANVAS" class="share-card-canvas"></canvas>
+</view>
