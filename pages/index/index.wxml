@@ -52,7 +52,7 @@
         <navigator url="/pages/share/index?id={{currentColor.id}}">
             <view class="icon share-icon"></view>
         </navigator>
-        <navigator url="/pages/download/index">
+        <navigator url="/pages/download/index?id={{currentColor.id}}">
             <view class="icon download-icon?id={{currentColor.id}}"></view>
         </navigator>
     </view>

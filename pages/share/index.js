@@ -84,12 +84,21 @@ Page({
       const figureImg = canvas.createImage();
       figureImg.src = `https://colors.ichuantong.cn/figure/${currentColor.figure || 'default.png'}`;//微信请求返回头像
       figureImg.onload = () => {
+        const { width, height } = figureImg
+        let dWidth = 257
+        let dHeight = 257
+        if (width > height) {
+          dHeight = 257 * height / width
+        }
+        if (width < height) {
+          dWidth = 257 * width / height
+        }
         ctx.save();
         ctx.beginPath()//开始创建一个路径
         ctx.globalAlpha = 0.8
         ctx.arc(156.5, 156.5, 128.5, 0, 2 * Math.PI)
         ctx.clip() //裁剪
-        ctx.drawImage(figureImg,28,28, 257, 257)
+        ctx.drawImage(figureImg, (313 - dWidth) / 2, (313 - dHeight) / 2, dWidth, dHeight)
         ctx.closePath()
         ctx.restore()
         resolve()

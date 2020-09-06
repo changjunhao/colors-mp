@@ -1,0 +1,13 @@
+.container {
+  font-variant: normal;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 999;
+  background-image: url(https://m.ifable.cn/images/bg.png);
+  background-repeat: repeat;
+  width: 100vw;
+  color: rgb(255, 255, 235);
+}
