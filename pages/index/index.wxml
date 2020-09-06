@@ -45,14 +45,14 @@
         <image wx:if="{{currentColor.figure}}" class="figure" style="height: {{figureHeight}}" src="https://colors.ichuantong.cn/figure/{{currentColor.figure}}" alt="figure" bind:load="handleFigureLoad"></image>
     </view>
     <view class="color-set {{expand ? 'expand' : ''}}">
-        <view wx:for="{{colorsList}}" class="{{currentColor.id[0] === item.id + '' ? 'color-set-item selected' : 'color-set-item'}}" style="background-color: {{item.hex}}" data-id="{{item.id}}" bind:tap="handleChangeColorSet">{{item.name}}</view>
+        <view wx:for="{{colorsList}}" wx:key="id" class="{{currentColor.id[0] === item.id + '' ? 'color-set-item selected' : 'color-set-item'}}" style="background-color: {{item.hex}}" data-id="{{item.id}}" bind:tap="handleChangeColorSet">{{item.name}}</view>
         <view class="btn" bind:tap="handleExpand"></view>
     </view>
     <view class="btns" style="top: {{topHeight + 14}}rpx">
         <navigator url="/pages/share/index?id={{currentColor.id}}">
             <view class="icon share-icon"></view>
         </navigator>
-        <navigator url="/pages/download/index?id={{currentColor.id}}">
+        <navigator url="/pages/download/index?id={{currentColor.id}}&poetry={{poetryJson}}">
             <view class="icon download-icon?id={{currentColor.id}}"></view>
         </navigator>
     </view>

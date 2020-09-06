@@ -14,6 +14,7 @@ Page({
     currentColorSet: {},
     currentColor:{},
     poetry: {},
+    poetryJson: '',
     topHeight: 0,
     figureHeight: 'auto',
     expand: false,
@@ -87,7 +88,7 @@ Page({
         .replace(/[，|。|！|？|、]/g, ' ')
         .trim()
         .split(' ');
-      this.setData({ poetry: obj })
+      this.setData({ poetry: obj, poetryJson: JSON.stringify(obj) })
     })
   }
 })

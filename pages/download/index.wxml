@@ -1,2 +1,12 @@
 <view class="container" style="background-color: {{currentColor.hex}}">
+    <view class="poetry" style="background: rgba({{currentColor.RGB[0]}}, {{currentColor.RGB[1]}}, {{currentColor.RGB[2]}}, 0.5); color: {{oppositeColor}};">
+        <view class="line">{{poetry.content[0]}}</view>
+        <view class="line">{{poetry.content[1]}}</view>
+        <text class="poetry-title">{{poetry.author}} · {{poetry.title}}</text>
+    </view>
+    <view class="name" style="color: {{oppositeColor}};">{{currentColor.name}}</view>
+    <image wx:if="{{currentColor.figure}}" style="height: {{figureHeight}};width: {{figureW}};opacity: {{figureO}}; {{pos}}: 0;" class="figure" src="https://colors.ichuantong.cn/figure/{{currentColor.figure}}" bind:load="handleFigureLoad"></image>
+    <image wx:else class="figure default-figure" src="https://colors.ichuantong.cn/figure/default.png"></image>
+    <view class="generate-image-button" bind:tap="handleGenerateImage">生成图片</view>
+    <canvas type="2d" id="PREVIEW_CANVAS" class="preview-canvas"></canvas>
 </view>

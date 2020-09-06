@@ -154,7 +154,7 @@ module.exports = [
         "hex": "#ff2121",
         "name": "大红",
         "intro": "正红色，三原色中的红，传统的中国红，又称绛色（RGB色中的R255系列明度）",
-        "figure": "long.png?width=20rem",
+        "figure": "long.png?width=20",
         "RGB": [
           255,
           33,
@@ -500,7 +500,7 @@ module.exports = [
         "hex": "#f9906f",
         "name": "酡颜",
         "intro": "饮酒脸红的样子。亦泛指脸红色",
-        "figure": "meinv.png?o=0.9&width=18rem",
+        "figure": "meinv.png?o=0.9&width=18",
         "RGB": [
           249,
           144,
@@ -1496,7 +1496,7 @@ module.exports = [
         "hex": "#96ce54",
         "name": "豆青",
         "intro": "浅青绿色",
-        "figure": "right.bottom.huaping.png?width=8rem&o=0.8",
+        "figure": "right.bottom.huaping.png?width=8&o=0.8",
         "RGB": [
           150,
           206,
@@ -1610,7 +1610,7 @@ module.exports = [
         "hex": "#057748",
         "name": "松花绿",
         "intro": "亦作\"松花\"、\"松绿\"。偏黑的深绿色,墨绿。",
-        "figure": "hudie.png?width=10rem",
+        "figure": "hudie.png?width=10",
         "RGB": [
           5,
           119,
@@ -1677,7 +1677,7 @@ module.exports = [
         "hex": "#177cb0",
         "name": "靛青",
         "intro": "也叫\"蓝靛\"。用蓼蓝叶泡水调和与石灰沉淀所得的蓝色染料。呈深蓝绿色（靛，发音dian四声，有些地方将蓝墨水称为\"靛水\"或者\"兰靛水\"）",
-        "figure": "hehua.caise.png?width=17rem&o=0.7",
+        "figure": "hehua.caise.png?width=17&o=0.7",
         "RGB": [
           23,
           124,
@@ -2084,7 +2084,7 @@ module.exports = [
         "hex": "#edd1d8",
         "name": "藕色",
         "intro": "浅灰而略带红的颜色",
-        "figure": "jianzhi.png?width=20rem&opacity=0.6",
+        "figure": "jianzhi.png?width=20&opacity=0.6",
         "RGB": [
           237,
           209,
@@ -2153,7 +2153,7 @@ module.exports = [
         "hex": "#519a73",
         "name": "苍翠",
         "intro": "",
-        "figure": "lvzhu.png?width=18rem",
+        "figure": "lvzhu.png?width=18",
         "RGB": [
           81,
           154,
@@ -2191,7 +2191,7 @@ module.exports = [
         "hex": "#7397ab",
         "name": "苍青",
         "intro": "",
-        "figure": "liangduohua.png?width=12rem",
+        "figure": "liangduohua.png?width=12",
         "RGB": [
           115,
           151,
@@ -2260,7 +2260,7 @@ module.exports = [
         "hex": "#88ada6",
         "name": "水色",
         "intro": "",
-        "figure": "hehuayu.png?width=16rem",
+        "figure": "hehuayu.png?width=16",
         "RGB": [
           136,
           173,
@@ -2279,7 +2279,7 @@ module.exports = [
         "hex": "#f3d3e7",
         "name": "水红",
         "intro": "",
-        "figure": "hehua2.png?width=18rem",
+        "figure": "hehua2.png?width=18",
         "RGB": [
           243,
           211,
@@ -2298,7 +2298,7 @@ module.exports = [
         "hex": "#d4f2e7",
         "name": "水绿",
         "intro": "",
-        "figure": "yu.png?width=17rem",
+        "figure": "yu.png?width=17",
         "RGB": [
           212,
           242,
@@ -2317,7 +2317,7 @@ module.exports = [
         "hex": "#d2f0f4",
         "name": "水蓝",
         "intro": "",
-        "figure": "moon.png?width=18rem",
+        "figure": "moon.png?width=18",
         "RGB": [
           210,
           240,
@@ -2336,7 +2336,7 @@ module.exports = [
         "hex": "#d3e0f3",
         "name": "淡青",
         "intro": "",
-        "figure": "huaping.png?width=18rem",
+        "figure": "huaping.png?width=18",
         "RGB": [
           211,
           224,
@@ -2519,7 +2519,7 @@ module.exports = [
         "hex": "#f3f9f1",
         "name": "荼白",
         "intro": "如荼之白色",
-        "figure": "ddh.png?width=16rem",
+        "figure": "ddh.png?width=16",
         "RGB": [
           243,
           249,
@@ -2595,7 +2595,7 @@ module.exports = [
         "hex": "#e3f9fd",
         "name": "莹白",
         "intro": "晶莹洁白",
-        "figure": "meinv.png?width=18rem",
+        "figure": "meinv.png?width=18",
         "RGB": [
           227,
           249,
@@ -2633,7 +2633,7 @@ module.exports = [
         "hex": "#eedeb0",
         "name": "牙色",
         "intro": "与象牙相似的淡黄色（暖白）",
-        "figure": "zhuzi.png?width=14rem",
+        "figure": "zhuzi.png?width=14",
         "RGB": [
           238,
           222,
@@ -2775,7 +2775,7 @@ module.exports = [
         "hex": "#50616d",
         "name": "墨色",
         "intro": "即黑色",
-        "figure": "huashan.png?width=18rem",
+        "figure": "huashan.png?width=18",
         "RGB": [
           80,
           97,
@@ -2868,7 +2868,7 @@ module.exports = [
         "hex": "#5d513c",
         "name": "黧",
         "intro": "黑中带黄的颜色",
-        "figure": "denglou1.png?width=14rem&position=top",
+        "figure": "denglou1.png?width=14&position=top",
         "RGB": [
           93,
           81,
@@ -2887,7 +2887,7 @@ module.exports = [
         "hex": "#75664d",
         "name": "黎",
         "intro": "黑中带黄似黎草色",
-        "figure": "denglou2.png?width=14rem&position=top",
+        "figure": "denglou2.png?width=14&position=top",
         "RGB": [
           117,
           102,

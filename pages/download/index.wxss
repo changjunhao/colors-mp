@@ -11,3 +11,70 @@
   width: 100vw;
   color: rgb(255, 255, 235);
 }
+
+.poetry {
+  position: absolute;
+  left: 50%;
+  top: 252rpx;
+  transform: translateX(-50%);
+  min-width: 168rpx;
+  white-space: nowrap;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22.4rpx 33.6rpx;
+}
+
+.poetry .line {
+  font-size: 44.8rpx;
+  font-weight: bold;
+  word-break: keep-all;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: 2px;
+}
+
+.poetry-title {
+  font-size: 22.4rpx;
+  word-break: keep-all;
+  margin-top: 28rpx;
+  color: inherit;
+  font-family: inherit;
+}
+
+.name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 28rpx;
+  margin-bottom: 28rpx;
+  font-family: TChinese, serif;
+  z-index: 99;
+}
+
+.figure {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  max-height: 100%;
+}
+
+.default-figure {
+  width: 224rpx;
+  height: 283.12rpx;
+}
+
+.generate-image-button {
+  position: absolute;
+  left: 50%;
+  bottom: 10vh;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 8.4rpx;
+  padding: 16.8rpx 22.4rpx;
+  font-size: 28rpx;
+  color: rgb(238, 238, 238);
+  background: rgb(31, 47, 45);
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10rpx 18rpx;
+}
