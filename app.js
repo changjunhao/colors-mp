@@ -5,6 +5,7 @@ App({
       global: true,
       family: 'TChinese',
       source: 'url("https://colors.ichuantong.cn/font/chinese.font.woff")',
+      scopes: ['webview', 'native'],
       success: console.log
     })
     const updateManager = wx.getUpdateManager()

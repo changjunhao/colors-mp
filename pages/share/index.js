@@ -57,7 +57,7 @@ Page({
     ctx.lineWidth = 2
     ctx.stroke()
 
-    ctx.font = 'normal bold 14px cursive'
+    ctx.font = 'normal bold 14px TChinese'
     ctx.textBaseline = 'bottom'
     ctx.fillStyle = `rgba(${currentColor.RGB.join(',')}, 0.8)`
     const metrics = ctx.measureText(`${colorSetName} · ${currentColor.name}`)

@@ -145,7 +145,7 @@ Page({
 
     await this.drawImage(canvas, ctx)
 
-    ctx.font = 'normal bold 16px cursive'
+    ctx.font = 'normal bold 16px TChinese'
     ctx.textBaseline = 'bottom'
     ctx.fillStyle = oppositeColor
     ctx.fillText(currentColor.name, 10, height - 20)

@@ -35,7 +35,7 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
-  "libVersion": "2.12.2",
+  "libVersion": "2.13.0",
   "appid": "wxb959d3519900c3b6",
   "projectname": "colors",
   "debugOptions": {
@@ -67,8 +67,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-      ]
+      "list": []
     }
   }
 }
