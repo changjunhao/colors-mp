@@ -264,7 +264,7 @@
   right: -44.8rpx;
   top: 50%;
   transform: translateY(-50%);
-  background-image: url('https://colors.ichuantong.cn/static/assets/yinyang.b2e8af02.svg');
+  background-image: url('https://colors.ichuantong.cn/assets/yinyang-b348864a.svg');
   background-size: cover;
   width: 84rpx;
   height: 84rpx;
