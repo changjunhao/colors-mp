@@ -42,7 +42,7 @@ const getTokenAndDo = callback => {
           wx.setStorageSync("jinrishici-token", res.data.data)
           lock = false
           while (waitingQueue.length > 0) {
-            waitingQueue.pop()(res.data.data)
+            waitingQueue.shift()(res.data.data)
           }
         } else {
           console.error("今日诗词API获取 Token 失败，错误原因：" + res.data.errMessage)
@@ -50,6 +50,7 @@ const getTokenAndDo = callback => {
         }
       },
       fail: () => {
+        lock = false
         console.error("今日诗词-小程序SDK 获取 Token 失败，可能是网络问题或者您没有添加到域名白名单")
       }
     })

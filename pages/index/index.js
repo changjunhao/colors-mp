@@ -14,7 +14,6 @@ Page({
     currentColorSet: {},
     currentColor:{},
     poetry: {},
-    poetryJson: '',
     topHeight: 0,
     figureHeight: 'auto',
     expand: false,
@@ -77,6 +76,23 @@ Page({
   handleCopyHex: function () {
     wx.setClipboardData({ data: this.data.currentColor.hex })
   },
+  handleDownload: function () {
+    const { currentColor, poetry } = this.data
+    // 通过 eventChannel 传递诗词，避免超长 URL query 与编码问题
+    wx.navigateTo({
+      url: `/pages/download/index?id=${currentColor.id}`,
+      success: (res) => {
+        res.eventChannel.emit('poetry', poetry)
+      }
+    })
+  },
+  onShareAppMessage: function () {
+    const { currentColorSet, currentColor } = this.data
+    return {
+      title: `${currentColorSet.name} · ${currentColor.name}`,
+      path: `/pages/share/index?id=${currentColor.id}`
+    }
+  },
   fetchPoetry: function () {
     jinrishici.load(result => {
       let obj = {
@@ -88,7 +104,7 @@ Page({
         .replace(/[，|。|！|？|、]/g, ' ')
         .trim()
         .split(' ');
-      this.setData({ poetry: obj, poetryJson: JSON.stringify(obj) })
+      this.setData({ poetry: obj })
     })
   }
 })

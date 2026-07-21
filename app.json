@@ -1,4 +1,5 @@
 {
+  "__usePrivacyCheck__": true,
   "lazyCodeLoading": "requiredComponents",
   "pages":[
     "pages/index/index",

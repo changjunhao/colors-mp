@@ -1,5 +1,13 @@
 const COLORS = require('../../data/colors')
 const { getCorrectTextColor } = require('../../utils/util')
+const {
+  getDpr,
+  getCanvasNode,
+  canvasToTempFilePath,
+  ensurePrivacyAuthorize,
+  ensureAlbumScope,
+  saveToAlbum
+} = require('../../utils/canvas')
 
 Page({
   data: {
@@ -23,21 +31,11 @@ Page({
       backgroundColor: currentColor.hex,
     })
   },
-  getCanvas() {
-    return new Promise((resolve) => {
-      const query = wx.createSelectorQuery()
-      query.select('#SHARE_CARD_CANVAS')
-        .fields({ node: true, size: true })
-        .exec((res) => {
-          resolve(res[0])
-        })
-    })
-  },
   async drawCanvas () {
-    const { width, height, node } = await this.getCanvas()
+    const { width, height, node } = await getCanvasNode('#SHARE_CARD_CANVAS')
     const canvas = node
     const ctx = canvas.getContext('2d')
-    const dpr = wx.getSystemInfoSync().pixelRatio
+    const dpr = getDpr()
     canvas.width = width * dpr
     canvas.height = height * dpr
     ctx.scale(dpr, dpr)
@@ -64,19 +62,6 @@ Page({
     ctx.fillText(`${colorSetName} · ${currentColor.name}`, 304.6 - metrics.width, 300)
     await this.drawImage(canvas, ctx)
     return canvas
-  },
-  canvasToTempFilePath(canvas) {
-    return new Promise((resolve, reject) => {
-      wx.canvasToTempFilePath({
-        canvas,
-        success: (res) => {
-          resolve(res)
-        },
-        fail(error) {
-          reject(error)
-        }
-      })
-    })
   },
   drawImage(canvas, ctx) {
     return new Promise((resolve, reject) => {
@@ -108,93 +93,39 @@ Page({
       }
     })
   },
-  getSetting() {
-    return new Promise((resolve, reject) => {
-      wx.getSetting({
-        success (res) {
-          if (res.authSetting['scope.writePhotosAlbum'] === false) {
-            wx.showModal({
-              content: '未授权相册，请先授权相册',
-              success (res) {
-                if (res.confirm) {
-                  wx.openSetting()
-                }
-              }
-            })
-            reject()
-          } else {
-            resolve()
-          }
-        },
-        fail() {
-          resolve()
-        }
-      })
-    })
-  },
   async handleGenerateImage() {
-    // scope.writePhotosAlbum: true
-    await this.getSetting()
+    // 保存相册前先完成隐私授权与相册权限检查
+    try {
+      await ensurePrivacyAuthorize()
+      await ensureAlbumScope()
+    } catch (e) {
+      return
+    }
     wx.showLoading({
       title: '图片生成中',
       mask: true,
     })
-    if (this.data.canvasImage) {
-      this.extraImage()
-      return
-    }
     try {
-      const canvas = await this.drawCanvas()
-      const res = await this.canvasToTempFilePath(canvas)
-      this.setData({
-        canvasImage: res.tempFilePath
-      }, () => {
-        this.extraImage()
-      })
+      if (!this.data.canvasImage) {
+        const canvas = await this.drawCanvas()
+        const res = await canvasToTempFilePath(canvas)
+        this.setData({ canvasImage: res.tempFilePath })
+      }
     } catch (e) {
       wx.hideLoading()
       wx.showToast({
         title: '图片生成失败',
         icon: 'none',
       })
+      return
     }
-  },
-  extraImage() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.canvasImage,
-      success(res) {
-        wx.showToast({
-          title: '图片已保存',
-          icon: 'success',
-        })
-      },
-      fail: (error) => {
-        if (error.errMsg && error.errMsg.includes('cancel')) return
-        if (error.errMsg.includes('fail auth deny')) {
-          wx.showModal({
-            title: '保存失败',
-            content: '请允许保存到相册',
-            success (res) {
-              if (res.confirm) {
-                wx.openSetting()
-              }
-            },
-            complete: () => {
-              this.setData({
-                canvasImage: ''
-              })
-            }
-          })
-          return
-        }
-        wx.showToast({
-          title: error.errMsg || '图片保存失败',
-          icon: 'none',
-        })
-      },
-      complete() {
-        wx.hideLoading()
-      }
-    })
+    try {
+      await saveToAlbum(this.data.canvasImage)
+    } catch (e) {
+      // 拒绝授权等失败时清空缓存图片，下次重新生成
+      this.setData({ canvasImage: '' })
+    } finally {
+      wx.hideLoading()
+    }
   }
 })
